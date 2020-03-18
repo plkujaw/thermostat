@@ -3,7 +3,7 @@
 describe('Can adjust temperature', function(){
   var thermostat;
 
-  beforeEach(function(){
+  beforeEach(function() {
     thermostat = new Thermostat();
   });
 
@@ -15,6 +15,20 @@ describe('Can adjust temperature', function(){
   it('can decrease temperature', function() {
     thermostat.decreaseTemp(5);
     expect(thermostat.temperature()).toEqual(15);
+  });
+
+});
+
+describe('Saving mode', function(){
+  var thermostat;
+
+  beforeEach(function() {
+    thermostat = new Thermostat();
+  });
+
+  it('turns on power saving mode', function (){
+    thermostat.powerSavingOn();
+    expect(thermostat.maxTemp()).toEqual(25);
   });
 
 });
