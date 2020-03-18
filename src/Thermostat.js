@@ -3,7 +3,8 @@
 function Thermostat(){
   this._temperature = 20;
   this._minTemp = 10;
-  this._maxTemp = 25;
+  this._powerSavingOn = true;
+  // this._maxTemp = 25;
 };
 
 Thermostat.prototype.temperature = function () {
@@ -25,14 +26,25 @@ Thermostat.prototype.minTemp = function() {
   return this._temperature === this._minTemp;
 };
 
-Thermostat.prototype.maxTemp = function () {
-  return this._maxTemp;
+Thermostat.prototype.isPowerSavingModeOn = function () {
+  return this._powerSavingOn === true;
 };
 
-Thermostat.prototype.powerSavingOn = function () {
-  this._maxTemp = 25;
+Thermostat.prototype.switchPowerSavingModeOff = function () {
+  this._powerSavingOn = false;
 };
 
-Thermostat.prototype.powerSavingOff = function () {
-  this._maxTemp = 32;
+Thermostat.prototype.switchPowerSavingModeOn = function () {
+  this._powerSavingOn = true;
 };
+// Thermostat.prototype.maxTemp = function () {
+//   return this._maxTemp;
+// };
+//
+// Thermostat.prototype.powerSavingOn = function () {
+//   this._maxTemp = 25;
+// };
+//
+// Thermostat.prototype.powerSavingOff = function () {
+//   this._maxTemp = 32;
+// };
