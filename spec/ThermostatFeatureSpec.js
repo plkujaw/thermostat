@@ -8,13 +8,13 @@ describe('Can adjust temperature', function(){
   });
 
   it('can increase temperature', function() {
-    thermostat.increaseTemp(5);
-    expect(thermostat.temperature()).toEqual(25);
+    thermostat.increaseTemp();
+    expect(thermostat.temperature()).toEqual(21);
   });
 
   it('can decrease temperature', function() {
-    thermostat.decreaseTemp(5);
-    expect(thermostat.temperature()).toEqual(15);
+    thermostat.decreaseTemp();
+    expect(thermostat.temperature()).toEqual(19);
   });
 
 });
@@ -27,8 +27,13 @@ describe('Saving mode', function(){
   });
 
   it('turns on power saving mode', function (){
-    thermostat.powerSavingOn();
+    // thermostat.powerSavingOn();
     expect(thermostat.maxTemp()).toEqual(25);
+  });
+
+  it('turns off power saving mode', function (){
+    thermostat.powerSavingOff();
+    expect(thermostat.maxTemp()).toEqual(32);
   });
 
 });
