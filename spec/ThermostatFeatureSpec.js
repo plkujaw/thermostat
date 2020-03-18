@@ -11,7 +11,7 @@ describe('Can adjust temperature', function(){
     thermostat.increaseTemp();
     expect(thermostat.temperature()).toEqual(21);
   });
-  
+
   it('can decrease temperature', function() {
     thermostat.decreaseTemp();
     expect(thermostat.temperature()).toEqual(19);

@@ -15,11 +15,14 @@ Thermostat.prototype.increaseTemp = function() {
 };
 
 Thermostat.prototype.decreaseTemp = function() {
+  if (this.minTemp()) {
+    return;
+  };
   this._temperature -= 1;
 };
 
 Thermostat.prototype.minTemp = function() {
-  return this._minTemp;
+  return this._temperature === this._minTemp;
 };
 
 Thermostat.prototype.maxTemp = function () {
