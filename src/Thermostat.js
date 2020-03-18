@@ -10,13 +10,13 @@ Thermostat.prototype.temperature = function () {
   return this._temperature;
 };
 
-Thermostat.prototype.increaseTemp = function(degrees) {
+Thermostat.prototype.increaseTemp = function() {
   this._temperature += 1;
 };
 
-Thermostat.prototype.decreaseTemp = function(degrees) {
+Thermostat.prototype.decreaseTemp = function() {
   this._temperature -= 1;
-}
+};
 
 Thermostat.prototype.minTemp = function() {
   return this._minTemp;
