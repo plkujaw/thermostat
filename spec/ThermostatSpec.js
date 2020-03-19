@@ -77,13 +77,13 @@ describe('Thermostat', function() {
         for (var i = 0; i < 3; i++) {
           thermostat.decreaseTemp();
         }
-        expect(thermostat.energyUsage()).toEqual('low-level usage')
+        expect(thermostat.energyUsage()).toEqual('low-level')
       });
     });
 
     describe('when temperature is between 18 and 25 degrees', function(){
       it('is medium-level usage', function(){
-        expect(thermostat.energyUsage()).toEqual('medium-level usage');
+        expect(thermostat.energyUsage()).toEqual('medium-level');
       });
     });
     describe('when temperature is above 25 degrees', function(){
@@ -92,7 +92,7 @@ describe('Thermostat', function() {
         for (var i = 0; i < 6; i++) {
           thermostat.increaseTemp();
         }
-        expect(thermostat.energyUsage()).toEqual('high-level usage')
+        expect(thermostat.energyUsage()).toEqual('high-level')
       });
     });
   });

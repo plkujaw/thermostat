@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link rel="stylesheet" href="Public/style.css">
     <meta charset="utf-8">
     <title>Thermostat</title>
   </head>
   <body>
+    <h1>Thermostat</h1>
     <section>
-      <h1 id='temperature'>Temperature</h1>
+      <h2 id='temperature'></h2>
       <p>
         <button id='temp-up'>+</button>
         <button id='temp-down'>-</button>
@@ -16,6 +18,11 @@
         <button id='psm-off'>PSM OFF</button>
       </p>
     </section>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
     <script src="src/Thermostat.js"></script>
+    <script src='interface.js'></script>
   </body>
 </html>

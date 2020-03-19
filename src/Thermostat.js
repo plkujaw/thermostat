@@ -53,15 +53,15 @@ Thermostat.prototype.isMaxTemp = function() {
 
 Thermostat.prototype.resetTemp = function () {
   this.temp = this.DEFAULT_TEMP;
-  // this.switchPowerSavingModeOn();
+  this.switchPowerSavingModeOn();
 };
 
 Thermostat.prototype.energyUsage = function () {
   if (this.temp < this.MEDIUM_ENERGY_USAGE_LIMIT) {
-    return 'low-level usage'
+    return 'low-level'
   };
   if (this.temp >= this.MEDIUM_ENERGY_USAGE_LIMIT && this.temp <= this.PSM_ON_MAX_TEMP) {
-    return 'medium-level usage'
+    return 'medium-level'
   };
-  return 'high-level usage'
+  return 'high-level'
 };
