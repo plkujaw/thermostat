@@ -1,50 +1,55 @@
 'use strict'
 
 function Thermostat(){
-  this._temperature = 20;
-  this._minTemp = 10;
-  this._powerSavingOn = true;
-  // this._maxTemp = 25;
+  this.DEFAULT_TEMP = 20;
+  this.temp = this.DEFAULT_TEMP;
+  this.MIN_TEMP = 10;
+  this.powerSavingOn = true;
+  this.PSM_ON_MAX_TEMP = 25;
+  this.PSM_OFF_MAX_TEMP = 32;
 };
 
-Thermostat.prototype.temperature = function () {
-  return this._temperature;
+Thermostat.prototype.currentTemp = function() {
+  return this.temp;
 };
 
 Thermostat.prototype.increaseTemp = function() {
-  this._temperature += 1;
+  if (this.isMaxTemp()) {
+    return;
+  }
+  this.temp += 1;
 };
 
 Thermostat.prototype.decreaseTemp = function() {
   if (this.minTemp()) {
     return;
   };
-  this._temperature -= 1;
+  this.temp -= 1;
 };
 
 Thermostat.prototype.minTemp = function() {
-  return this._temperature === this._minTemp;
+  return this.temp === this.MIN_TEMP;
 };
 
-Thermostat.prototype.isPowerSavingModeOn = function () {
-  return this._powerSavingOn === true;
+Thermostat.prototype.isPowerSavingModeOn = function() {
+  return this.powerSavingOn === true;
 };
 
-Thermostat.prototype.switchPowerSavingModeOff = function () {
-  this._powerSavingOn = false;
+Thermostat.prototype.switchPowerSavingModeOff = function() {
+  this.powerSavingOn = false;
 };
 
-Thermostat.prototype.switchPowerSavingModeOn = function () {
-  this._powerSavingOn = true;
+Thermostat.prototype.switchPowerSavingModeOn = function() {
+  this.powerSavingOn = true;
 };
-// Thermostat.prototype.maxTemp = function () {
-//   return this._maxTemp;
-// };
-//
-// Thermostat.prototype.powerSavingOn = function () {
-//   this._maxTemp = 25;
-// };
-//
-// Thermostat.prototype.powerSavingOff = function () {
-//   this._maxTemp = 32;
-// };
+
+Thermostat.prototype.isMaxTemp = function() {
+  if (this.isPowerSavingModeOn() === true) {
+    return this.temp === this.PSM_ON_MAX_TEMP
+  };
+  return this.temp === this.PSM_OFF_MAX_TEMP
+};
+
+Thermostat.prototype.resetTemp = function () {
+  this.temp = this.DEFAULT_TEMP;
+};
