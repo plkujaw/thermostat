@@ -81,7 +81,20 @@ describe('Thermostat', function() {
       });
     });
 
-    describe()
+    describe('when temperature is between 18 and 25 degrees', function(){
+      it('is medium-level usage', function(){
+        expect(thermostat.energyUsage()).toEqual('medium-level usage');
+      });
+    });
+    describe('when temperature is above 25 degrees', function(){
+      it('is high-level usage', function(){
+        thermostat.PowerSavingMode = false;
+        for (var i = 0; i < 6; i++) {
+          thermostat.increaseTemp();
+        }
+        expect(thermostat.energyUsage()).toEqual('high-leve usage')
+      });
+    });
   });
 
 });
