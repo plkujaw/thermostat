@@ -1,4 +1,14 @@
 $(document).ready(function() {
+  $('#current-city').change(function() {
+  var city = $('#current-city').val();
+
+  $.get('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=7345a781561a8095e5c9680ac945fbd8&units=metric', function(data) {
+  $('#current-temp').text(data.main.temp);
+  });
+
+});
+
+
   var thermostat = new Thermostat();
   updateTemp();
 
