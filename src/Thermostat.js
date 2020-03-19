@@ -53,6 +53,7 @@ Thermostat.prototype.isMaxTemp = function() {
 
 Thermostat.prototype.resetTemp = function () {
   this.temp = this.DEFAULT_TEMP;
+  // this.switchPowerSavingModeOn();
 };
 
 Thermostat.prototype.energyUsage = function () {
