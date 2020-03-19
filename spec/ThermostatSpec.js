@@ -88,11 +88,12 @@ describe('Thermostat', function() {
     });
     describe('when temperature is above 25 degrees', function(){
       it('is high-level usage', function(){
-        thermostat.PowerSavingMode = false;
+        thermostat.switchPowerSavingModeOff(); //why it doesnt work when I want to change it directly with thermostat.powerSavingOn = false;
         for (var i = 0; i < 6; i++) {
           thermostat.increaseTemp();
+          console.log(thermostat.temp);
         }
-        expect(thermostat.energyUsage()).toEqual('high-leve usage')
+        expect(thermostat.energyUsage()).toEqual('high-level usage')
       });
     });
   });
